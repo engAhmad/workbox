@@ -50,6 +50,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
   end
 
+  # Copy file from host to guest.
+  if File.file?(File.expand_path("./files/.bash_aliases"))
+      config.vm.provision "file", source: "./files/.bash_aliases", destination: ".bash_aliases"
+  end
+
+
   # Run The Base Provisioning Script
   #config.vm.provision 'shell', path: './scripts/update.sh'
   #config.vm.provision :reload
