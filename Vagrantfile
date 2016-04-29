@@ -25,6 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network 'forwarded_port', guest: 80, host: 8000
   config.vm.network 'forwarded_port', guest: 3306, host: 33060
   config.vm.network 'forwarded_port', guest: 27017, host: 27017
+  config.vm.network 'forwarded_port', guest: 6379, host: 6379
 
   config.vm.synced_folder './', '/vagrant', mount_options: ["dmode=755", "fmode=666"]
   config.vm.synced_folder "../www", "/var/www/", mount_options: ["dmode=755", "fmode=666"]
